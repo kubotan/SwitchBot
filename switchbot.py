@@ -15,8 +15,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# refs. https://github.com/OpenWonderLabs/python-host/blob/master/switchbot_meter_py3.py
-# refs. https://github.com/kanon700/python-host/blob/feature/add_get_settings/switchbot_meter_py3.py
+# refs. https://github.com/OpenWonderLabs/python-host/
+# refs. https://github.com/kanon700/python-host/
 
 # apt-get install python3-pip
 # pip3 install bluepy
