@@ -14,8 +14,8 @@ from bluepy import btle
 UUID_SERVICE='cba20d00-224d-11e6-9fb8-0002a5d5c51b'
 
 if __name__ == '__main__': 
-  index=0   # 0=/dev/hci0
-  timeout=3.0
+  index = 0   # 0=/dev/hci0
+  timeout = 3.0
   scanner = btle.Scanner(index)
   devices = scanner.scan(timeout)
 
@@ -23,4 +23,4 @@ if __name__ == '__main__':
   for dev in devices:
     for (adTypeCode, desc, value) in dev.getScanData():
       if adTypeCode == 7 and value == UUID_SERVICE:
-        print(f'  MAC Address={dev.addr}, Type={dev.addrType}, RSSI={dev.rssi} dB')
+        print(f'  MAC address={dev.addr}, Type={dev.addrType}, RSSI={dev.rssi} dB')
