@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# 【注意】近接するSwitchBotのMACアドレスを検索するプログラムですが
+# お隣のも拾う可能性があるので、電池を抜いた場合に反応しないかなどで
+# 確認してください。
 # apt-get install python3-pip
 # pip3 install bluepy
 # chmod 755 ./search_mac_addr.py
@@ -20,4 +23,4 @@ if __name__ == '__main__':
   for dev in devices:
     for (adTypeCode, desc, value) in dev.getScanData():
       if adTypeCode == 7 and value == UUID_SERVICE:
-        print(f'  Mac Address={dev.addr}, Type={dev.addrType}, RSSI={dev.rssi} dB')
+        print(f'  MAC Address={dev.addr}, Type={dev.addrType}, RSSI={dev.rssi} dB')
