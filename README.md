@@ -7,3 +7,6 @@ This is a program to control the SwitchBot with python3.
 
 # Caution
 There is a possibility of ignition or breakage. Use at your own risk.
+
+# Blog
+- https://blog.gorogoro.space/2021/10/05/566/
