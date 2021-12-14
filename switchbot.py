@@ -33,14 +33,15 @@ import traceback
 
 MAC_ADDRESS='XX:XX:XX:XX:XX:XX'   # Check the Mac address of SwitchBot from the setting screen of the app.
 COMMANDS = {
+  'init'               : '0100',
   'press'              : '5701',   # press mode
   'switch_on'          : '570101',   # switch mode
   'switch_off'         : '570102',   # switch mode
   'down'               : '570103',
   'up'                 : '570104',
   'show_settings'      : '5702',
-  'set_reverse_off'    : '57036410',
-  'set_reverse_on'     : '57036411',
+  'set_reverse_on'     : '57036410',
+  'set_reverse_off'    : '57036411',
   'set_long_press_0s'  : '570f0800',
   'set_long_press_1s'  : '570f0801',
   'set_long_press_2s'  : '570f0802',
@@ -56,6 +57,7 @@ COMMANDS = {
 }
 EXIT_FAILURE=1
 EXIT_SUCCESS=0
+HANDLE_INIT=0x14
 HANDLE_READ=0x13
 HANDLE_WRITE=0x16
 TIMEOUT_SECONDS_NOTIFICATIONS=1
@@ -77,6 +79,8 @@ if __name__ == '__main__':
     p.waitForNotifications(TIMEOUT_SECONDS_NOTIFICATIONS)
     svc = p.getServiceByUUID(UUID_SERVICE)
     ch = svc.getCharacteristics(UUID_SPECIFIED_CHARACTERISTIC)[0]
+    if key == 'show_settings':
+      p.writeCharacteristic(HANDLE_INIT, binascii.a2b_hex(COMMANDS['init']), True)   # Required after battery replacement or reset.
     p.writeCharacteristic(HANDLE_WRITE, binascii.a2b_hex(COMMANDS[key]), True)
     value = p.readCharacteristic(HANDLE_READ)
     result = {}
